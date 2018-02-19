@@ -11,12 +11,12 @@ describe('Feature Test:', function(){
 
   it('planes can be instructed to land at an airport', function(){
     plane.land(airport);
-    expect(airport.planes).toContain(plane);
+    expect(airport._planes).toContain(plane);
   });
 
   it('planes can be instructed to takeoff from the airport', function() {
     plane.takeoff(airport);
-    expect(airport.planes).not.toContain(plane);
+    expect(airport._planes).not.toContain(plane);
   });
 
   it('confirms the takeoff', function() {
