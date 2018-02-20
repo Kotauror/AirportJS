@@ -10,7 +10,9 @@ Weather.prototype.random = function () {
 Weather.prototype.isStormy = function () {
   if (this.random() === 1) {
     return true;
+    this.status = "stormy";
   } else {
     return false;
+    this.status = "sunny";
   }
 };
