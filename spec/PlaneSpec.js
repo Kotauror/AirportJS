@@ -1,14 +1,15 @@
+'use strict';
+
 describe('Plane',function(){
 
   var plane;
+  var airport;
+  var weather;
 
   beforeEach(function(){
     plane = new Plane();
     airport = jasmine.createSpyObj('airport',['_planes', 'hasPlaces', '_weather']);
-  });
-
-  it('can land at an airport', function(){
-    expect(plane.land).not.toBeUndefined();
+    weather = jasmine.createSpyObj('weather',['isStormy']);
   });
 
   it('has initial status flying', function(){
