@@ -46,4 +46,17 @@ describe('Feature Test:', function() {
     expect(airport.takeoffConfirm(plane)).toEqual("This plane is still in the airport")
   });
 
+  it('plane cannot land twice', function () {
+    plane.land(airport);
+    plane.land(airport);
+    expect(airport._planes.length).toEqual(1);
+  });
+
+  it('plane cannot takeoff twice', function () {
+    plane.land(airport);
+    plane.takeoff(airport);
+    plane.takeoff(airport);
+    expect(airport._planes.length).toEqual(0);
+  });
+
 });

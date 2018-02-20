@@ -1,4 +1,4 @@
-function Airport(capacity) {
+function Airport(capacity = 5) {
   this.capacity = capacity
   this._planes = []
 }
