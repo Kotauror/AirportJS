@@ -4,10 +4,12 @@ describe('Feature Test:', function() {
 
   var plane;
   var airport;
+  var weather;
 
   beforeEach(function() {
     plane = new Plane();
     airport = new Airport(10);
+    weather = new Weather();
   });
 
   it('planes can be instructed to land at an airport', function() {
@@ -57,6 +59,16 @@ describe('Feature Test:', function() {
     plane.takeoff(airport);
     plane.takeoff(airport);
     expect(airport._planes.length).toEqual(0);
+  });
+
+  it('weather starts as sunny', function () {
+    expect(weather.status).toEqual('sunny');
+  });
+
+  it('weather can be stormy', function () {
+     sinon.stub(Math, 'random').returns(4);
+     weather.random();
+     expect(weather.status).toEqual('stormy');
   });
 
 });
