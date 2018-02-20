@@ -27,10 +27,6 @@ describe('Feature Test:', function() {
       expect(airport._planes).not.toContain(plane);
     });
 
-    it('initial status of plane is flying', function() {
-      expect(plane.status).toEqual("flying");
-    });
-
     it('changes the plane status on landing', function() {
       plane.land(airport);
       expect(plane.status).toEqual("at_airport");
@@ -87,5 +83,5 @@ describe('Feature Test:', function() {
       expect(airport._planes.length).toEqual(1);
     });
   });
-  
+
 });
