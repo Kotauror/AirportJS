@@ -70,4 +70,17 @@ describe('Feature Test:', function() {
      expect(weather.isStormy()).toBeTruthy();
   });
 
+  it('plane cannot land when weather is stormy', function () {
+    spyOn(Math, 'floor').and.returnValue(1);
+    plane.land(airport);
+    expect(airport._planes.length).toEqual(0);
+  });
+
+  it('plane cannot takeoff when weather is stormy', function () {
+    plane.land(airport);
+    spyOn(Math, 'floor').and.returnValue(1);
+    plane.takeoff(airport);
+    expect(airport._planes.length).toEqual(1);
+  });
+
 });
