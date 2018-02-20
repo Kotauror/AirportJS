@@ -27,3 +27,11 @@ Airport.prototype.hasPlane = function(plane) {
     return false;
   }
 };
+
+Airport.prototype.clearLanding = function(plane) {
+  this._planes.push(plane);
+};
+
+Airport.prototype.clearTakeoff = function(plane) {
+  this._planes.pop(plane);
+};

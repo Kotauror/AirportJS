@@ -4,14 +4,14 @@ function Plane() {
 
 Plane.prototype.land = function(airport) {
   if (airport.hasPlaces() && this.status === "flying" && !airport._weather.isStormy()) {
-    airport._planes.push(this);
+    airport.clearLanding(this);
     this.status = "at_airport";
   }
 }
 
 Plane.prototype.takeoff = function(airport) {
   if (airport.hasPlane(this) && this.status === "at_airport" && !airport._weather.isStormy()) {
-    airport._planes.pop(this);
+    airport.clearTakeoff(this);
     this.status = "flying";
   }
 }
