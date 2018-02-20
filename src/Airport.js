@@ -18,4 +18,12 @@ Airport.prototype.hasPlaces = function () {
   } else {
     return false;
   }
+}
+
+Airport.prototype.hasPlane = function(plane) {
+  if (this._planes.includes(plane)) {
+    return true;
+  } else {
+    return false;
+  }
 };

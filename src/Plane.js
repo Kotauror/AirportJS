@@ -10,7 +10,7 @@ Plane.prototype.land = function(airport) {
 }
 
 Plane.prototype.takeoff = function(airport) {
-  if (airport._planes.includes(this) && this.status === "at_airport" && !airport._weather.isStormy()) {
+  if (airport.hasPlane(this) && this.status === "at_airport" && !airport._weather.isStormy()) {
     airport._planes.pop(this);
     this.status = "flying";
   }
