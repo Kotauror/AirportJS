@@ -8,9 +8,10 @@ describe('Plane',function(){
 
   beforeEach(function(){
     plane = new Plane();
-    airport = jasmine.createSpyObj('airport',['_planes', 'clearLanding', 'clearTakeoff', 'hasPlaces', 'hasPlane' '_weather']);
-    airport._weather.isStormy = function(){return false;}
-    airport.hasPlaces = function(){return true;}
+    airport = jasmine.createSpyObj('airport',['_planes', 'clearLanding', 'clearTakeoff', 'hasPlaces', 'hasPlane']);
+    airport._weather = jasmine.createSpyObj('weather', ['isStormy']);
+    airport._weather.isStormy = function(){return false;};
+    airport.hasPlaces = function(){return true;};
   });
 
   it('has initial status flying', function(){
