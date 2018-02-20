@@ -1,12 +1,16 @@
 function Weather() {
-  this.status = 'sunny'
+  this.status = "sunny"
 }
 
 Weather.prototype.random = function () {
-  var number = Math.floor((Math.random() * 10 ) + 1);
-  if (number === 4) {
-    return 'stormy';
+  output = Math.random() * 10
+  return Math.floor(output);
+};
+
+Weather.prototype.isStormy = function () {
+  if (this.random() === 1) {
+    return true;
   } else {
-    return 'sunny';
+    return false;
   }
 };

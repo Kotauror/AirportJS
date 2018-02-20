@@ -66,9 +66,8 @@ describe('Feature Test:', function() {
   });
 
   it('weather can be stormy', function () {
-     sinon.stub(Math, 'random').returns(4);
-     weather.random();
-     expect(weather.status).toEqual('stormy');
+     spyOn(Math, 'floor').and.returnValue(1);
+     expect(weather.isStormy()).toBeTruthy();
   });
 
 });
