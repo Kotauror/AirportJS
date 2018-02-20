@@ -70,10 +70,6 @@ describe('Feature Test:', function() {
     expect(airport._planes.length).toEqual(0);
   });
 
-  it('weather starts as sunny', function () {
-    expect(weather.status).toEqual('sunny');
-  });
-
   it('weather can be stormy', function () {
      spyOn(Math, 'floor').and.returnValue(1);
      expect(weather.isStormy()).toBeTruthy();
