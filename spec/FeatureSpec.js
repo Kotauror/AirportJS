@@ -1,15 +1,16 @@
 'use strict';
 
-describe('Feature Test:', function(){
+describe('Feature Test:', function() {
+
   var plane;
   var airport;
 
-  beforeEach(function(){
+  beforeEach(function() {
     plane = new Plane();
     airport = new Airport(10);
   });
 
-  it('planes can be instructed to land at an airport', function(){
+  it('planes can be instructed to land at an airport', function() {
     plane.land(airport);
     expect(airport._planes).toContain(plane);
   });
@@ -17,6 +18,21 @@ describe('Feature Test:', function(){
   it('planes can be instructed to takeoff from the airport', function() {
     plane.takeoff(airport);
     expect(airport._planes).not.toContain(plane);
+  });
+
+  it('initial status of plane is flying', function() {
+    expect(plane.status).toEqual("flying");
+  });
+
+  it('changes the plane status on landing', function() {
+    plane.land(airport);
+    expect(plane.status).toEqual("at_airport");
+  });
+
+  it('changes the plane status on takeoff', function() {
+    plane.land(airport);
+    plane.takeoff(airport);
+    expect(plane.status).toEqual("flying");
   });
 
   it('confirms the takeoff', function() {
